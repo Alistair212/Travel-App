@@ -7,7 +7,7 @@ table = db.Table("travelAppDB")
 
 
 for x in range(exceldocfetch.amount_of_countries()):
-    print("adding in country: " + exceldocfetch.country_name(x))
+    print("(" + str + "/" + exceldocfetch.amount_of_countries() + ") adding in country: " + exceldocfetch.country_name(x))
     table.put_item(
         Item={
             'countryID': x,

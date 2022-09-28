@@ -37,7 +37,7 @@ Resources:
     Metadata:
       CreatedBy: AWS SAM CLI sync command
     Properties:
-      TemplateURL: /Users/bxu/Desktop/travelapp/travelappv1/.aws-sam/auto-dependency-layer/adl_nested_template.yaml
+      TemplateURL: C:\Users\User\OneDrive\Accenture Git\Travel-App\travelappv1\.aws-sam\auto-dependency-layer\adl_nested_template.yaml
     Type: AWS::CloudFormation::Stack
 Outputs:
   HelloWorldApi:
