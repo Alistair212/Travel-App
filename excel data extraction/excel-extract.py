@@ -1,11 +1,13 @@
 from cmath import nan
-from itertools import count
 import pandas as pd
 import re
 
-file_name = r'C:\Users\User\OneDrive\Accenture Git\Travel-App\excel data extraction\Travel Restrictions - travel4.csv'
-
+file_name = r'https://docs.google.com/spreadsheets/d/1E6wgwLeoAmcQO9bzEw0UbSsMpkX2sDsL1E3jJ-VR1zE/export?format=csv'
+print("Downloading and putting data into pandas data frame...")
 workbook = pd.read_csv(file_name, encoding='utf-8')
+print("File Loaded")
+number_of_countries = len(workbook['adm0_name'])
+
 
 
 def country_name(number):
@@ -31,6 +33,8 @@ def latest_news(number):
 def international_restrictions(number):
     data = country_info(number)
     international_restrictions = data.split("International Restrictions:")
+    if (len(international_restrictions) == 1):
+        return "No information available"
     international_restrictions = international_restrictions[1].split("Internal Restrictions:")
     return international_restrictions[0]
 
@@ -43,31 +47,18 @@ def internal_restrictions(number):
     else:
         return international_restrictions[1]
 
+
+
+
+
 # for i in range(290):
 #     print(country_name(i))
 #     print("Latest News:")
 #     print(latest_news(i))
 #     print("International Restrictions:")
-    # print(international_restrictions(i))
+#     print(international_restrictions(i))
 #     print("Internal Restrictions:")
 #     print(internal_restrictions(i))
 #     print("----------------------------------------------------------------------------------------------------------------")
 
-
-for i in range(290):
-    if (country_name(i) == "United Kingdom of Great Britain & Northern Ireland"):
-        print("***Country Name:")
-        print(country_name(i))
-        print("***Latest News:")
-        print(latest_news(i))
-        print("***International Restrictions:")
-        print(international_restrictions(i))
-        print("***Internal Restrictions:")
-        print(internal_restrictions(i))
-        print("----------------------------------------------------------------------------------------------------------------")
-# print(country_name(i))
-# print(country_info(i))
-# print(latest_news(i))
-# print(international_restrictions(i))
-# print(internal_restrictions(i))
-
+print(number_of_countries)
