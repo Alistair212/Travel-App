@@ -13,7 +13,7 @@ number_of_countries = len(workbook['adm0_name'])
 def country_name(number):
     return ((workbook['adm0_name'].iloc[number]))
 
-def country_info(number):
+def country_info(number): #this is private, dont ever call this from ptjer
     if (type(workbook['info'].iloc[number]) != str):
         data = "No information available"
     else:
