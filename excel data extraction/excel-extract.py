@@ -1,12 +1,13 @@
 from cmath import nan
-import string
 import pandas as pd
-import sys
 import re
 
-file_name = r'C:\Users\User\OneDrive\Accenture Git\Travel-App\excel data extraction\Travel Restrictions - travel4.csv'
-
+file_name = r'https://docs.google.com/spreadsheets/d/1E6wgwLeoAmcQO9bzEw0UbSsMpkX2sDsL1E3jJ-VR1zE/export?format=csv'
+print("Downloading and putting data into pandas data frame...")
 workbook = pd.read_csv(file_name, encoding='utf-8')
+print("File Loaded")
+number_of_countries = len(workbook['adm0_name'])
+
 
 
 def country_name(number):
@@ -18,26 +19,46 @@ def country_info(number):
     else:
         data = (workbook['info'].iloc[number])
         data = str((re.sub(r'<.*?>', '', data))) #removes html tags from string
-    return str(data)
+    return str(data).replace("*", "")
 
 def latest_news(number):
     data = country_info(number)
     latest_news = data.split("International Restrictions:")
-    return latest_news[0]
+    latest_news = latest_news[0].split("Latest News:")
+    if (len(latest_news[0]) == 0):
+        return "No information available"
+    else:
+        return latest_news[0]
 
 def international_restrictions(number):
     data = country_info(number)
-    international_restrictions = data.split("Internal Restrictions:")
+    international_restrictions = data.split("International Restrictions:")
+    if (len(international_restrictions) == 1):
+        return "No information available"
+    international_restrictions = international_restrictions[1].split("Internal Restrictions:")
     return international_restrictions[0]
 
 def internal_restrictions(number):
     data = country_info(number)
     international_restrictions = data.split("Internal Restrictions:")
-    return international_restrictions[0]
+    if (len(international_restrictions) == 1):
+        internal_restrictions = "No information available"
+        return internal_restrictions
+    else:
+        return international_restrictions[1]
 
 
-# i=1
-# print(country_name(i))     
-# print("Latest News: " + latest_news(i))
-# print("International Restrictions: " + international_restrictions(i))
-# print("Internal Restrictions: " + internal_restrictions(i))
+
+
+
+# for i in range(290):
+#     print(country_name(i))
+#     print("Latest News:")
+#     print(latest_news(i))
+#     print("International Restrictions:")
+#     print(international_restrictions(i))
+#     print("Internal Restrictions:")
+#     print(internal_restrictions(i))
+#     print("----------------------------------------------------------------------------------------------------------------")
+
+print(number_of_countries)
