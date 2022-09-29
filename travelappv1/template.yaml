@@ -8,12 +8,14 @@ Description: >
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
   Function:
-    Timeout: 3
+    Timeout: 300
 
 Resources:
   HelloWorldFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
+      Layers:
+        - !Sub arn:aws:lambda:${AWS::Region}:017000801446:layer:AWSLambdaPowertoolsPython:36
       CodeUri: hello_world/
       Handler: app.lambda_handler
       Runtime: python3.9
@@ -26,25 +28,9 @@ Resources:
         HelloWorld:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
           Properties:
-            Path: /hello
-            Method: get
-  # GetListOfCountries:
-  #   Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
-  #   Properties:
-  #     CodeUri: hello_world/
-  #     Handler: countries.lambda_handler
-  #     Runtime: python3.9
-  #     Policies:
-  #       - CloudWatchPutMetricPolicy: {}
-  #       - AmazonDynamoDBFullAccess
-  #     Architectures:
-  #       - x86_64
-  #     Events:
-  #       HelloWorld:
-  #         Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
-  #         Properties:
-  #           Path: /countries
-  #           Method: get
+            Path: /{proxy+} #used to be /hello
+            Method: any
+
 
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
