@@ -5,7 +5,6 @@ db = boto3.resource('dynamodb')
 table = db.Table("travelAppDB")
 
 
-
 for x in range(exceldocfetch.amount_of_countries()):
     print("(" + str + "/" + exceldocfetch.amount_of_countries() + ") adding in country: " + exceldocfetch.country_name(x))
     table.put_item(
@@ -17,7 +16,4 @@ for x in range(exceldocfetch.amount_of_countries()):
             'internal_restrictions': exceldocfetch.internal_restrictions(x)
         }
     )
-
-
-
 
