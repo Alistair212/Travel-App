@@ -42,6 +42,19 @@ def get_user(country_id):
     return databaseRead.get_latest_news(country_id)
 
 
+
+
+@app.get("/all_info/<country_id>")
+@tracer.capture_method
+def get_user(country_id):
+    # print("Checking latest news for country: ")
+    print(country_id)
+    if country_id == "":
+        raise BadRequestError("no id provided")
+    return {"country_name": databaseRead.get_country(country_id), "latest_news": databaseRead.get_latest_news(country_id), "international_restrictions": databaseRead.get_international_restrictions(country_id), "internal_restrictions": databaseRead.get_internal_restrictions(country_id)}
+
+
+
 @app.get("/get_country/<country_id>")
 @tracer.capture_method
 def get_user(country_id):
