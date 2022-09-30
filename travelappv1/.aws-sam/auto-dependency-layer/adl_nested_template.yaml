@@ -14,7 +14,7 @@ Resources:
     Properties:
       CompatibleRuntimes:
       - python3.9
-      ContentUri: /Users/bxu/Desktop/travelapp/travelappv1/.aws-sam/auto-dependency-layer/HelloWorldFunction19d43fc4DepLayer
+      ContentUri: C:\Users\User\OneDrive\Accenture Git\Travel-App\travelappv1\.aws-sam\auto-dependency-layer\HelloWorldFunction19d43fc4DepLayer
       Description: Auto created layer for dependencies of function HelloWorldFunction
       LayerName: travelappv15814f771-HelloWorldFunction19d43fc4-DepLayer
       RetentionPolicy: Delete
