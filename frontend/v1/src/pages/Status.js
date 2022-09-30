@@ -1,4 +1,6 @@
 import { useState, React, useEffect } from 'react';
+import Selectedfrom from '../components/Selectedfrom';
+import { Container } from '@mui/material';
 
 
 // const myURL = new URL('https://l4pf5hbqdd.execute-api.ap-southeast-2.amazonaws.com/Prod/get_country');
@@ -33,7 +35,7 @@ const c = countryid['aus'];
             setCountryName(jsonres.country_name);
             setLatestNews(jsonres.latest_news);
             setInternationalRes(jsonres.international_restrictions);
-            setInternalRes(jsonres.international_restrictions);
+            setInternalRes(jsonres.internal_restrictions);
         console.log(jsonres.country_name);
         return jsonres.country_name;
         }
@@ -43,7 +45,7 @@ const c = countryid['aus'];
 
     useEffect(() => {
         resp(c);
-    }, [countryName])
+    }, [countryName, internalRes, latestNews, internationalRes])
 
 
 //JSON RESPONSE OBJECTS
@@ -55,14 +57,24 @@ const c = countryid['aus'];
 
   return (
     <>
-    <div>Status</div>
-    <br></br>
-    <div>{countryName}</div>
-    <br></br>
-    <div>{latestNews}</div>
-    <br></br>
-    <div>{internationalRes}</div>
-    <div>{internalRes}</div>
+    {/* <div classname="toplevel"> */}
+        >
+        <div className="bttopp">
+            <Selectedfrom countryval={props.toCountry}  />
+        </div>
+        <div >
+        <div>Status</div>
+        <br></br>
+            <div><h1>Country: {countryName}</h1></div>
+        <br></br>
+            <h3>Latest news: </h3>
+        <div>{latestNews}</div>
+        <br></br>
+        <   div>{internationalRes}</div>
+        <br></br>
+        <br></br>
+            <div class="bottomdiv">{internalRes}</div>
+        </div>
     </>
   )
 }

@@ -8,7 +8,7 @@ export const From = (props) => {
 
   return (
     <>
-    <Header name="Where from?"/>
+    <Header name="Where from?" className="colort"/>
     <div className='emptyy'>
     <America fromCountry={props.fromCountry} setCountry={props.setFromCountry} value="usa" />
         <Australia fromCountry={props.fromCountry} setCountry={props.setFromCountry} value="aus"/>
