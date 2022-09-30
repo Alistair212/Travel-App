@@ -62,19 +62,13 @@ const countryid = {
         <div className="bttopp">
             <Selectedfrom countryval={props.toCountry}  />
         </div>
-        <div class="omg_add_space_here">
-        <br></br>
-            <div><h1>Country: {countryName}</h1></div>
-        <br></br>
+        <div class="omg_add_space_here"><br></br>
+            <div><h1>Country: {countryName}</h1></div><br></br>
             <h2>Latest news: </h2>
-        <div>{latestNews}</div>
-        <br></br>
-        <h2>International Restrictions: </h2>
-        <   div>{internationalRes}</div>
-        <br></br>
-        <br></br>
-        <h2>Internal Restrictions: </h2>
-
+            <div>{latestNews}</div><br></br>
+            <h2>International Restrictions: </h2>
+            <div>{internationalRes}</div><br></br><br></br>
+            <h2>Internal Restrictions: </h2>
             <div class="bottomdiv">{internalRes}</div>
         </div>
     </>
