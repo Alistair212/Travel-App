@@ -2,6 +2,11 @@
   margin: 0;
 }
 
+
+h1,h2,h3,body {
+  font-family: 'Open Sans', sans-serif;
+}
+
 html, body {
   height: 100vh;
   width: 100vw;
@@ -64,6 +69,8 @@ html, body {
 .bttop{
   background-color: aqua;
 }
-.bottomdiv{
-  background-color: blue;
+
+.omg_add_space_here{
+  padding-left: 30px;
+  padding-right: 30px;
 }

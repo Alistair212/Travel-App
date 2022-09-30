@@ -16,7 +16,6 @@ const countryid = {
     'uk':274
 }
 
-const c = countryid['aus'];
 
  const Status = (props) => {
     const [countryName, setCountryName] = useState('');
@@ -26,6 +25,7 @@ const c = countryid['aus'];
 
     console.log('from country: ' + props.fromCountry);
     console.log('to country' + props.toCountry);
+    const c = countryid[props.toCountry];
 
     const resp = async(id) => {
         try {
@@ -58,21 +58,23 @@ const c = countryid['aus'];
   return (
     <>
     {/* <div classname="toplevel"> */}
-        >
+        
         <div className="bttopp">
             <Selectedfrom countryval={props.toCountry}  />
         </div>
-        <div >
-        <div>Status</div>
+        <div class="omg_add_space_here">
         <br></br>
             <div><h1>Country: {countryName}</h1></div>
         <br></br>
-            <h3>Latest news: </h3>
+            <h2>Latest news: </h2>
         <div>{latestNews}</div>
         <br></br>
+        <h2>International Restrictions: </h2>
         <   div>{internationalRes}</div>
         <br></br>
         <br></br>
+        <h2>Internal Restrictions: </h2>
+
             <div class="bottomdiv">{internalRes}</div>
         </div>
     </>
