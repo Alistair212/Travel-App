@@ -9,9 +9,11 @@ export const From = (props) => {
   return (
     <>
     <Header name="Where from?"/>
-    <America fromCountry={props.fromCountry} setFromCountry={props.setFromCountry} value="usa" />
-        <Australia fromCountry={props.fromCountry} setFromCountry={props.setFromCountry} value="aus"/>
-        <Uk fromCountry={props.fromCountry} setFromCountry={props.setFromCountry} value="uk"/>
+    <div className='emptyy'>
+    <America fromCountry={props.fromCountry} setCountry={props.setFromCountry} value="usa" />
+        <Australia fromCountry={props.fromCountry} setCountry={props.setFromCountry} value="aus"/>
+        <Uk fromCountry={props.fromCountry} setCountry={props.setFromCountry} value="uk"/>
+    </div>
     </>
   )
 }

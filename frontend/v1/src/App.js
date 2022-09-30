@@ -1,12 +1,13 @@
 
 import './App.css';
-import {Box, Stack} from '@mui/material';
+import {Box, Hidden, Stack} from '@mui/material';
 import Header from './components/Header';
 import { useState } from 'react';
 import { Routes, Link, Route } from 'react-router-dom';
 import { From } from "./pages/From";
 import Topage from './pages/Topage';
-
+import Status from './pages/Status';
+import GlobalStyles from './Globalstyles';
 
 function App() {
   const [fromCountry, setFromCountry] = useState('bob');
@@ -14,8 +15,8 @@ function App() {
 
   return (
     <>
-    {/* <Header /> */}
-    <Box >
+    <GlobalStyles />
+    
       <Stack
         direction={{ xs: 'column', sm: 'column' }}
         spacing={{ xs: 1, sm: 2, md: 4 }} 
@@ -23,10 +24,11 @@ function App() {
         alignItems="center">
         <Routes>
           <Route path="/" element={<From fromCountry={fromCountry} setFromCountry={setFromCountry}/>}/>
-          <Route path="/to" element={<Topage toCountry={toCountry} setToCountry={setToCountry} />} />
+          <Route path="/to" element={<Topage fromCountry={fromCountry} toCountry={toCountry} setToCountry={setToCountry} />} />
+          <Route path="/status" element={<Status fromCountry={fromCountry} toCountry={toCountry} />} />
         </Routes>
       </Stack>
-    </Box>
+
     </>
   );
 }

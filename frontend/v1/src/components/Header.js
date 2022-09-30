@@ -2,9 +2,6 @@ import React from 'react'
 import FlightIcon from '@mui/icons-material/Flight';
 import Grid from '@mui/material/Grid';
 import '../App.css';
-// import Input from '@mui/material/Input';
-// import FormControl from '@mui/material/FormControl';
-// import InputLabel from '@mui/material/InputLabel';
 
 const Header = (props) => {
   return (
