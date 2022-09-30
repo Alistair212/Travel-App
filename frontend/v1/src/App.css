@@ -50,8 +50,8 @@ html, body {
   font-size: 80px;
   background: transparent;
   border-style: none;
-  color:aquamarine;
   text-align: center;
+  color:black;
   margin-left: -32px;
 }
 
@@ -66,8 +66,9 @@ html, body {
 .toplevel{
   background-color: #5465ff;
 }
-.bttop{
+.bttopp{
   background-color: aqua;
+  margin-top: 50px;
 }
 
 .omg_add_space_here{

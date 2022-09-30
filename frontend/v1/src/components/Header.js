@@ -18,7 +18,7 @@ const Header = (props) => {
       }}
       /></Grid>
       <Grid item xs={9}>
-        <input className='test' placeholder={props.name} />
+        <h2 className='test'>{props.name}</h2>
       </Grid>
     </Grid>
   )
