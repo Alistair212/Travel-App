@@ -1,11 +1,11 @@
 import boto3
 import exceldocfetch
 
+print("loaded database update function")
 db = boto3.resource('dynamodb')
 table = db.Table("travelAppDB")
 
-
-
+print("Updating database")
 for x in range(exceldocfetch.amount_of_countries()):
     print("adding in country: " + exceldocfetch.country_name(x))
     table.put_item(
@@ -17,7 +17,4 @@ for x in range(exceldocfetch.amount_of_countries()):
             'internal_restrictions': exceldocfetch.internal_restrictions(x)
         }
     )
-
-
-
-
+print("Database updated")
