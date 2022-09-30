@@ -1,13 +1,7 @@
 import { useState, React, useEffect } from 'react';
 import Selectedfrom from '../components/Selectedfrom';
-import { Container } from '@mui/material';
-
-
-// const myURL = new URL('https://l4pf5hbqdd.execute-api.ap-southeast-2.amazonaws.com/Prod/get_country');
-// console.log(myURL.searchParams.append('/1')
-// fetch('https://l4pf5hbqdd.execute-api.ap-southeast-2.amazonaws.com/Prod/get_country/1')
-//   .then((response) => response.json())
-//   .then((data) => console.log(data));
+import UndoIcon from '@mui/icons-material/Undo';
+import { useNavigate } from 'react-router-dom';
 
 
 const countryid = {
@@ -22,6 +16,7 @@ const countryid = {
     const [latestNews, setLatestNews] = useState('');
     const [internationalRes, setInternationalRes] = useState('');
     const [internalRes, setInternalRes] = useState('');
+    const navigate = useNavigate();
 
     console.log('from country: ' + props.fromCountry);
     console.log('to country' + props.toCountry);
@@ -57,8 +52,6 @@ const countryid = {
 
   return (
     <>
-    {/* <div classname="toplevel"> */}
-        
         <div className="bttopp">
             <Selectedfrom countryval={props.toCountry}  />
         </div>
@@ -71,6 +64,7 @@ const countryid = {
             <h2>Internal Restrictions: </h2>
             <div class="bottomdiv">{internalRes}</div>
         </div>
+        <UndoIcon onClick={() => navigate(-1)}/>
     </>
   )
 }
