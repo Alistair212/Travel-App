@@ -1,1 +1,3 @@
-This is a test from Alistair
+Travel-APP
+
+Overview: fully deployed react frontend with AWsLambda backend querying DynamoDB
